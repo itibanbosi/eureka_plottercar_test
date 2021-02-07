@@ -63,6 +63,7 @@ namespace eureka_plotter_car {
     led.enable(false);
     let i=0;
     let n = Math.floor(((F_cm * 512) / (18.9*cond_Distance) )+F_hasuu)
+    serial.writeValue("n", n );
     for (let index = 0; index < n ; index++) {
       pins.digitalWritePin(DigitalPin.P3, 0);
       pins.digitalWritePin(DigitalPin.P13, 1);
