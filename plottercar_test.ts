@@ -57,9 +57,9 @@ namespace eureka_plotter_car {
     }
   }
 
-  //% color="#3943c6" weight=80　blockId=plottercar_1sou_forward
+  //% color="#3943c6" weight=80　blockId=plottercar_forward
   //% block="前へ |%F_cm| ｃｍ進む" group="3　基本の動き"
-    export function plottercar_1sou_forward(F_cm: number): void {
+    export function plottercar_forward(F_cm: number): void {
     led.enable(false);
     let i=0;
     let n = Math.floor(((F_cm * 512) / (18.9*cond_Distance) )+F_hasuu)
@@ -114,9 +114,9 @@ namespace eureka_plotter_car {
   }
 
 
-  //% color="#3943c6" weight=78　blockId=plottercar_1sou_back
+  //% color="#3943c6" weight=78　blockId=plottercar_back
   //% block="後ろへ |%F_cm| ｃｍ進む" group="3　基本の動き"
-    export function plottercar_1sou_back(F_cm: number): void {
+    export function plottercar_back(F_cm: number): void {
     led.enable(false);
     let i=0;
     let n = Math.floor(((F_cm * 512) / (18.9*cond_Distance) )+B_hasuu)
@@ -669,7 +669,7 @@ namespace eureka_plotter_car {
   export function polygon(digree_step: number,Edge_Num:number): void {
 
     for (let index = 0; index < digree_step; index++) {
-        eureka_plotter_car.plottercar_1sou_forward(Edge_Num)
+        eureka_plotter_car.plottercar_forward(Edge_Num)
         eureka_plotter_car.plottercar_L_cycle(360/digree_step)
      }
     plottercar_frest()
@@ -682,7 +682,7 @@ namespace eureka_plotter_car {
     let cir = D_Num * 3.14
     let Foward_D =  cir/ 60
     for (let index = 0; index < 60; index++) {
-        eureka_plotter_car.plottercar_1sou_forward(Foward_D)
+        eureka_plotter_car.plottercar_forward(Foward_D)
         eureka_plotter_car.plottercar_R_cycle(360 / 60)
     }
   }
