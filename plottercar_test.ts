@@ -110,7 +110,7 @@ namespace eureka_plotter_car {
       }
 
     }
-    F_hasuu=(((F_cm *512) / (18.9*cond_Distance)+F_hasuu) % 1 )
+    F_hasuu=(((F_cm * 512) / (18.9*cond_Distance) )+F_hasuu)-Math.floor(((F_cm * 512) / (18.9*cond_Distance) )+F_hasuu)
   }
 
 
