@@ -109,8 +109,9 @@ namespace eureka_plotter_car {
       {
       }
 
-    }
+    
     F_hasuu=(((F_cm * 512) / (18.9*cond_Distance) )+F_hasuu)-Math.floor(((F_cm * 512) / (18.9*cond_Distance) )+F_hasuu)
+    }
   }
 
 
@@ -167,8 +168,9 @@ namespace eureka_plotter_car {
       {
       }    
 
-    }
+    
     B_hasuu=(((F_cm *512) / (18.9*cond_Distance)+B_hasuu) % 1 )
+    }
   }
 
 
@@ -272,8 +274,9 @@ namespace eureka_plotter_car {
       for (i = 0; i < 1000; i++);
       {
       }
-    }
+
     L_hasuu =(((512 * 1.62 * cond_degree * (L_degree / 360) )+L_hasuu) % 1);
+    }
   }
 
 
@@ -379,8 +382,9 @@ namespace eureka_plotter_car {
       for (i = 0; i < 1000; i++);
       {
       }
-    }
+    
     R_hasuu =(((512 * 1.62 * cond_degree*(R_degree / 360) )+L_hasuu) % 1); 
+    }
   }
 
   //% color="#ff4940" weight=71　blockId=plottercar_rest
