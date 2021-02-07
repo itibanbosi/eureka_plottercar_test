@@ -387,7 +387,7 @@ namespace eureka_plotter_car {
       {
       }
      }  
-    R_hasuu =(((512 * 1.62 * cond_degree*(R_degree / 360) )+L_hasuu) % 1); 
+    R_hasuu =(((512 * 1.62 * cond_degree*(R_degree / 360) )+R_hasuu) % 1); 
       serial.writeValue("R",R_hasuu );
   }
 
