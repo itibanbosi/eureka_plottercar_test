@@ -273,7 +273,7 @@ namespace eureka_plotter_car {
       {
       }
     }
-    L_hasuu =(((512 * 1.62 * cond_degree(L_degree / 360) )+L_hasuu) % 1);
+    L_hasuu =(((512 * 1.62 * cond_degree * (L_degree / 360) )+L_hasuu) % 1);
   }
 
 
@@ -380,7 +380,7 @@ namespace eureka_plotter_car {
       {
       }
     }
-    R_hasuu =(((512 * 1.62 * cond_degree(R_degree / 360) )+L_hasuu) % 1); 
+    R_hasuu =(((512 * 1.62 * cond_degree*(R_degree / 360) )+L_hasuu) % 1); 
   }
 
   //% color="#ff4940" weight=71　blockId=plottercar_rest
