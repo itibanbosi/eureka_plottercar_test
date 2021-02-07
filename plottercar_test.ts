@@ -63,7 +63,8 @@ namespace eureka_plotter_car {
     led.enable(false);
     let i=0;
     let n = Math.floor(((F_cm * 512) / (18.9*cond_Distance) )+F_hasuu)
-    serial.writeValue("n", n );
+/*    serial.writeValue("F_n", n );
+*/
     for (let index = 0; index < n ; index++) {
       pins.digitalWritePin(DigitalPin.P3, 0);
       pins.digitalWritePin(DigitalPin.P13, 1);
@@ -112,7 +113,9 @@ namespace eureka_plotter_car {
 
     }    
     F_hasuu=(((F_cm * 512) / (18.9*cond_Distance) )+F_hasuu)-Math.floor(((F_cm * 512) / (18.9*cond_Distance) )+F_hasuu)
+/*
     serial.writeValue("x",F_hasuu );
+*/  
   }
 
 
@@ -180,7 +183,7 @@ namespace eureka_plotter_car {
 
   export function plottercar_L_cycle(L_degree: number): void {
     let n = Math.floor((512 * 1.62 * cond_degree * (L_degree / 360) )+L_hasuu)
-
+    serial.writeValue("L_n", n );
 
     for (let index = 0; index < n ; index++) {
     led.enable(false);
@@ -277,7 +280,7 @@ namespace eureka_plotter_car {
       }
    }
     L_hasuu =(((512 * 1.62 * cond_degree * (L_degree / 360) )+L_hasuu) % 1);
- 
+     serial.writeValue("L",L_hasuu );
   }
 
 
@@ -290,7 +293,7 @@ namespace eureka_plotter_car {
 
     let i = 0;
     let n = Math.floor((512 * 1.62 * cond_degree * (R_degree / 360) )+R_hasuu);
-
+    serial.writeValue("R_n", n );
     for (let index = 0; index < n ; index++) {
       for (i = 0; i < 1000; i++);
       {
@@ -385,7 +388,7 @@ namespace eureka_plotter_car {
       }
      }  
     R_hasuu =(((512 * 1.62 * cond_degree*(R_degree / 360) )+L_hasuu) % 1); 
- 
+      serial.writeValue("R",R_hasuu );
   }
 
   //% color="#ff4940" weight=71　blockId=plottercar_rest
