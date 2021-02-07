@@ -23,9 +23,12 @@ enum houkou {
 
 let cond_Distance=1;
 let cond_degree=1;
+let F_hasuu=0;
+let B_hasuu=0;
+let R_hasuu=0;
+let L_hasuu=0;
 
-
-//% color="#3943c6" block="ﾌﾟﾛｯﾀｰ・ｶｰVer1.0" icon="\uf1b9"
+//% color="#3943c6" block="ﾌﾟﾛｯﾀｰ・ｶｰ_test" icon="\uf1b9"
 
 namespace eureka_plotter_car {
 
@@ -59,7 +62,8 @@ namespace eureka_plotter_car {
     export function plottercar_1sou_forward(F_cm: number): void {
     led.enable(false);
     let i=0;
-    for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512); index++) {
+    let n = Math.floor(((F_cm * 512) / (18.9*cond_Distance) )+F_hasuu)
+    for (let index = 0; index < n ; index++) {
       pins.digitalWritePin(DigitalPin.P3, 0);
       pins.digitalWritePin(DigitalPin.P13, 1);
       pins.digitalWritePin(DigitalPin.P4, 0);
@@ -104,6 +108,7 @@ namespace eureka_plotter_car {
       for (i = 0; i < 900; i++);
       {
       }
+    F_hasuu=(((F_cm *512) / (18.9*cond_Distance)+F_hasuu) % 1 )
     }
   }
 
