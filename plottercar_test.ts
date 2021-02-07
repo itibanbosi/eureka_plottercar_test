@@ -108,8 +108,9 @@ namespace eureka_plotter_car {
       for (i = 0; i < 900; i++);
       {
       }
-    F_hasuu=(((F_cm *512) / (18.9*cond_Distance)+F_hasuu) % 1 )
+
     }
+    F_hasuu=(((F_cm *512) / (18.9*cond_Distance)+F_hasuu) % 1 )
   }
 
 
@@ -165,225 +166,20 @@ namespace eureka_plotter_car {
       for (i = 0; i < 900; i++);
       {
       }    
+
+    }
     B_hasuu=(((F_cm *512) / (18.9*cond_Distance)+B_hasuu) % 1 )
-    }
-  }
-/*
-  //% color="#3943c6" weight=70　blockId=plottercar_forward
-  //% block="（高精度）前へ |%F_cm| ｃｍ進む" group="3　基本の動き"
-
-  export function plottercar_forward(F_cm: number): void {
-    led.enable(false);
-    let i=0;
-    let n = Math.floor(((F_cm * 512) / (18.9*cond_Distance) )+B_hasuu)
-
-    for (let index = 0; index < n ; index++) {
-
-
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 1);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 1);
-      pins.digitalWritePin(DigitalPin.P16, 1);
-
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 1);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 1);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 1);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 1);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 1);
-      pins.digitalWritePin(DigitalPin.P6, 1);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 1);
-      pins.digitalWritePin(DigitalPin.P14, 1);
-      pins.digitalWritePin(DigitalPin.P6, 1);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 1);
-      pins.digitalWritePin(DigitalPin.P14, 1);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 1);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 1);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 1);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 1);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 1);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 1);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 1);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 1);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 1);
-      pins.digitalWritePin(DigitalPin.P16, 1);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-    }
   }
 
-
-
-  //% color="#3943c6" weight=69　blockId=plottercar_back
-  //% block="（高精度）後へ |%F_cm| ｃｍ進む" group="3　基本の動き"
-
-  export function plottercar_back(F_cm: number): void {
-    led.enable(false);
-    let i=0;
-    for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512) ; index++) {
-
-
-      pins.digitalWritePin(DigitalPin.P3, 1);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 1);
-      pins.digitalWritePin(DigitalPin.P16, 1);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-
-      pins.digitalWritePin(DigitalPin.P3, 1);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 1);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 1);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 1);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 1);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 1);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 1);
-      pins.digitalWritePin(DigitalPin.P14, 1);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 1);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 1);
-      pins.digitalWritePin(DigitalPin.P14, 1);
-      pins.digitalWritePin(DigitalPin.P6, 1);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 1);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 1);
-      pins.digitalWritePin(DigitalPin.P6, 1);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 1);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 1);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 1);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 1);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 1);
-      pins.digitalWritePin(DigitalPin.P16, 1);
-      for (i = 0; i < 1000; i++);
-      {
-      }
-    }
-  }
-
-*/
 
   //% color="#3943c6" weight=76　blockId=plottercar_L_cycle
   //% block="左回り　角度 |%L_degree| " group="3　基本の動き"
 
   export function plottercar_L_cycle(L_degree: number): void {
+    let n = Math.floor((512 * 1.62 * cond_degree(L_degree / 360) )+L_hasuu)
 
 
-    for (let index = 0; index < (L_degree / 360) * 512 * 1.62*cond_degree; index++) {
+    for (let index = 0; index < n ; index++) {
     led.enable(false);
 
       let i = 0;
@@ -477,22 +273,10 @@ namespace eureka_plotter_car {
       {
       }
     }
+    L_hasuu =(((512 * 1.62 * cond_degree(L_degree / 360) )+L_hasuu) % 1);
   }
 
-  //% color="#ff4940" weight=71　blockId=plottercar_rest
-  //% block="停止状態（電流ＯＦＦ）" group="3　基本の動き"
-  export function plottercar_frest(): void {
-    led.enable(false);
 
-    pins.digitalWritePin(DigitalPin.P3, 0);
-    pins.digitalWritePin(DigitalPin.P4, 0);
-    pins.digitalWritePin(DigitalPin.P6, 0);
-    pins.digitalWritePin(DigitalPin.P7, 0);
-    pins.digitalWritePin(DigitalPin.P13, 0);
-    pins.digitalWritePin(DigitalPin.P14, 0);
-    pins.digitalWritePin(DigitalPin.P15, 0);
-    pins.digitalWritePin(DigitalPin.P16, 0);
-  }
 
   //% color="#3943c6" weight=74　blockId=plottercar_R_cycle
   //% block="右回り　角度 |%R_degree| " group="3　基本の動き"
@@ -501,8 +285,9 @@ namespace eureka_plotter_car {
     led.enable(false);
 
     let i = 0;
+    let n = Math.floor((512 * 1.62 * cond_degree(R_degree / 360) )+R_hasuu);
 
-    for (let index = 0; index < (R_degree / 360) * 512 * 1.62*cond_degree; index++) {
+    for (let index = 0; index < n ; index++) {
       for (i = 0; i < 1000; i++);
       {
       }
@@ -595,7 +380,24 @@ namespace eureka_plotter_car {
       {
       }
     }
+    R_hasuu =(((512 * 1.62 * cond_degree(R_degree / 360) )+L_hasuu) % 1); 
   }
+
+  //% color="#ff4940" weight=71　blockId=plottercar_rest
+  //% block="停止状態（電流ＯＦＦ）" group="3　基本の動き"
+  export function plottercar_frest(): void {
+    led.enable(false);
+
+    pins.digitalWritePin(DigitalPin.P3, 0);
+    pins.digitalWritePin(DigitalPin.P4, 0);
+    pins.digitalWritePin(DigitalPin.P6, 0);
+    pins.digitalWritePin(DigitalPin.P7, 0);
+    pins.digitalWritePin(DigitalPin.P13, 0);
+    pins.digitalWritePin(DigitalPin.P14, 0);
+    pins.digitalWritePin(DigitalPin.P15, 0);
+    pins.digitalWritePin(DigitalPin.P16, 0);
+  }
+
 
   //% color="#3943c6" weight=55　blockId=plottercar_R_step
   //% block="右車輪　 |%R_step|ステップ |%houkou|方向" group="3　基本の動き"
