@@ -27,7 +27,12 @@ let F_hasuu=0;
 let B_hasuu=0;
 let R_hasuu=0;
 let L_hasuu=0;
-let wait_time=5000;
+let wait_time=1000;
+let diameter=60;
+let circumference=diameter*3.1415;
+let RL_distance=93;
+let circle_n=RL_distance*3.1415/circumference;
+
 
 
 //% color="#3943c6" block="ﾌﾟﾛｯﾀｰ・ｶｰ_test" icon="\uf1b9"
@@ -64,7 +69,7 @@ namespace eureka_plotter_car {
     export function plottercar_forward(F_cm: number): void {
     led.enable(false);
     let i=0;
-    let n = Math.floor(((F_cm * 512) / (18.9*cond_Distance) )+F_hasuu)
+    let n = Math.floor(((F_cm * 512) / (circumference/10*cond_Distance) )+F_hasuu)
 /*
     serial.writeValue("F_n", n );
 */
@@ -127,7 +132,7 @@ namespace eureka_plotter_car {
     export function plottercar_back(F_cm: number): void {
     led.enable(false);
     let i=0;
-    let n = Math.floor(((F_cm * 512) / (18.9*cond_Distance) )+B_hasuu)
+    let n = Math.floor(((F_cm * 512) / (circumference/10*cond_Distance) )+B_hasuu)
 /*
     serial.writeValue("B_n", n );
 */
@@ -190,7 +195,7 @@ namespace eureka_plotter_car {
   //% block="左回り　角度 |%L_degree| " group="3　基本の動き"
 
   export function plottercar_L_cycle(L_degree: number): void {
-    let n = Math.floor((512 * 1.62 * cond_degree * (L_degree / 360) )+L_hasuu)
+    let n = Math.floor((512 * circle_n * cond_degree * (L_degree / 360) )+L_hasuu)
 /*
     serial.writeValue("L_n", n );
 */
@@ -303,7 +308,7 @@ namespace eureka_plotter_car {
     led.enable(false);
 
     let i = 0;
-    let n = Math.floor((512 * 1.62 * cond_degree * (R_degree / 360) )+R_hasuu);
+    let n = Math.floor((512 * circle_n * cond_degree * (R_degree / 360) )+R_hasuu);
 /*
     serial.writeValue("R_n", n );
 */
