@@ -27,7 +27,7 @@ let F_hasuu=0;
 let B_hasuu=0;
 let R_hasuu=0;
 let L_hasuu=0;
-let wait_time=2000;
+let wait_time=5000;
 
 
 //% color="#3943c6" block="ﾌﾟﾛｯﾀｰ・ｶｰ_test" icon="\uf1b9"
