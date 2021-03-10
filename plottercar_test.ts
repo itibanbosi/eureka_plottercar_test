@@ -101,51 +101,9 @@ namespace eureka_plotter_car {
       pins.digitalWritePin(DigitalPin.P15, SteppingL[D2][2]);
       pins.digitalWritePin(DigitalPin.P7, SteppingR[D2][3]);
       pins.digitalWritePin(DigitalPin.P16, SteppingL[D2][3]);
-
+        basic.showNumber(D2);
         basic.pause(1000);
       }
-/*      
-      for (i = 0; i < microbit_wait; i++);
-      {
-      }
-    }
-
-
-      pins.digitalWritePin(DigitalPin.P3, SteppingR[1][0]);
-      pins.digitalWritePin(DigitalPin.P13, SteppingL[1][0]);
-      pins.digitalWritePin(DigitalPin.P4, SteppingR[1][1]);
-      pins.digitalWritePin(DigitalPin.P14, SteppingL[1][1]);
-      pins.digitalWritePin(DigitalPin.P6, SteppingR[1][2]);
-      pins.digitalWritePin(DigitalPin.P15, SteppingL[1][2]);
-      pins.digitalWritePin(DigitalPin.P7, SteppingR[1][3]);
-      pins.digitalWritePin(DigitalPin.P16, SteppingL[1][3]);
-      for (i = 0; i < microbit_wait; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, SteppingR[2][0]);
-      pins.digitalWritePin(DigitalPin.P13, SteppingL[2][0]);
-      pins.digitalWritePin(DigitalPin.P4, SteppingR[2][1]);
-      pins.digitalWritePin(DigitalPin.P14, SteppingL[2][1]);
-      pins.digitalWritePin(DigitalPin.P6, SteppingR[2][2]);
-      pins.digitalWritePin(DigitalPin.P15, SteppingL[2][2]);
-      pins.digitalWritePin(DigitalPin.P7, SteppingR[2][3]);
-      pins.digitalWritePin(DigitalPin.P16, SteppingL[2][3]);
-      for (i = 0; i < microbit_wait; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, SteppingR[3][0]);
-      pins.digitalWritePin(DigitalPin.P13, SteppingL[3][0]);
-      pins.digitalWritePin(DigitalPin.P4, SteppingR[3][1]);
-      pins.digitalWritePin(DigitalPin.P14, SteppingL[3][1]);
-      pins.digitalWritePin(DigitalPin.P6, SteppingR[3][2]);
-      pins.digitalWritePin(DigitalPin.P15, SteppingL[3][2]);
-      pins.digitalWritePin(DigitalPin.P7, SteppingR[3][3]);
-      pins.digitalWritePin(DigitalPin.P16, SteppingL[3][3]);
-      for (i = 0; i < microbit_wait; i++);
-      {
-      }
-*/      
-      
     }
   }
 
