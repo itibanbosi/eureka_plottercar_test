@@ -30,8 +30,9 @@ let cond_degree=1;
 let microbit_wait=900;
 
 
-var stepping_R = [DigitalPin.P2, DigitalPin.P4, DigitalPin.P6, DigitalPin.P7];
-var stepping_L  = [DigitalPin.P13,DigitalPin.P14,DigitalPin.P15,DigitalPin.P16]
+let stepping_R = [2, 4, 6 , 7];
+
+let stepping_L  = [13,14,15,16];
 
 //% color="#3943c6" block="ﾌﾟﾛｯﾀｰ・ｶｰVer1.2" icon="\uf1b9"
 
