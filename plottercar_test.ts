@@ -30,7 +30,7 @@ let cond_degree=1;
 let microbit_wait=900;
 
 let Stepping1 = [
-  [0,0,0,1],
+  [1,0,0,0],
   [0,0,1,0],
   [0,1,0,0],
   [1,0,0,0],
@@ -42,6 +42,35 @@ let Stepping2 = [
   [0,0,1,0],
   [0,0,0,1],
   ];
+
+
+let hasuu = [[
+  [0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],
+  [1,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],
+  [1,0,0,0],[0,1,0,0],[0,0,0,0],[0,0,0,0],  
+  [1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,0],
+  ],
+  [
+  [0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],
+  [0,0,0,0],[0,1,0,0],[0,0,0,0],[0,0,0,0],
+  [0,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,0],  
+  [0,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1],
+  ],
+  [
+  [0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],
+  [0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],
+  [0,0,0,0],[0,0,0,0],[0,0,1,0],[0,0,0,0],  
+  [0,0,0,0],[0,0,0,0],[0,0,1,0],[0,0,0,1],
+  ],
+  [
+  [0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],
+  [0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],
+  [0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],  
+  [0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,1],
+  ],
+  ];
+
+
 
 
 
@@ -89,9 +118,6 @@ namespace eureka_plotter_car {
     led.enable(false);
     let i=0;
     for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512  ); index++) {
-
-    
-
     let Data1=0;
     while ( Data1 < 4){
         
@@ -111,8 +137,6 @@ namespace eureka_plotter_car {
       }
     }
   }
-
-
   //% color="#3943c6" weight=78　blockId=plottercar_1sou_back
   //% block="後ろへ |%F_cm| ｃｍ進む" group="3　基本の動き"
     export function plottercar_1sou_back(F_cm: number): void {
@@ -137,9 +161,6 @@ namespace eureka_plotter_car {
       }
     }
   }
-
-
-
 
   //% color="#3943c6" weight=76　blockId=plottercar_L_cycle
   //% block="左回り　角度 |%L_degree| " group="3　基本の動き"
@@ -166,8 +187,6 @@ namespace eureka_plotter_car {
     }
    }
   }
-
-
   //% color="#3943c6" weight=74　blockId=plottercar_R_cycle
   //% block="右回り　角度 |%R_degree| " group="3　基本の動き"
 
@@ -209,8 +228,6 @@ namespace eureka_plotter_car {
     pins.digitalWritePin(DigitalPin.P15, 0);
     pins.digitalWritePin(DigitalPin.P16, 0);
   }
-
-
   //% color="#3943c6" weight=55　blockId=plottercar_R_step
   //% block="右車輪　 ４×|%R_step|ステップ |%houkou|方向" group="3　基本の動き"
 
@@ -252,8 +269,6 @@ namespace eureka_plotter_car {
         return;
     }
 }
-
-
   //% color="#3943c6" weight=58　blockId=plottercar_L_step
   //% block="左車輪　 ４×|%L_step|ステップ |%houkou|方向" group="3　基本の動き"
 
