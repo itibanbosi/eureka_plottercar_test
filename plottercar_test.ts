@@ -101,11 +101,10 @@ namespace eureka_plotter_car {
       pins.digitalWritePin(DigitalPin.P15, SteppingL[Data1][2]);
       pins.digitalWritePin(DigitalPin.P7, SteppingR[Data1][3]);
       pins.digitalWritePin(DigitalPin.P16, SteppingL[Data1][3]);
-
-        basic.pause(1000);
-        serial.writeNumber(Data1); 
+      for (i = 0; i < microbit_wait; i++);
+      {
+      }
       Data1=Data1+1;
-
       }
     }
   }
