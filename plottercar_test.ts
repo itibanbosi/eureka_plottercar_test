@@ -91,7 +91,7 @@ namespace eureka_plotter_car {
     for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512 ); index++) {
 
     let Data1=0;
-    while ( Data1 < 5){
+    while ( Data1 < 4){
         
       pins.digitalWritePin(DigitalPin.P3, SteppingR[Data1][0]);
       pins.digitalWritePin(DigitalPin.P13, SteppingL[Data1][0]);
