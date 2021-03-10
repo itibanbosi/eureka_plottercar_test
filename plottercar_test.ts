@@ -117,50 +117,22 @@ namespace eureka_plotter_car {
     let i=0;
     for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512); index++) {
 
-      pins.digitalWritePin(DigitalPin.P3, 1);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 1);
+    let Data1=3;
+    while ( Data1 <= 0){
+        
+      pins.digitalWritePin(DigitalPin.P3, SteppingR[Data1][0]);
+      pins.digitalWritePin(DigitalPin.P13, SteppingL[Data1][0]);
+      pins.digitalWritePin(DigitalPin.P4, SteppingR[Data1][1]);
+      pins.digitalWritePin(DigitalPin.P14, SteppingL[Data1][1]);
+      pins.digitalWritePin(DigitalPin.P6, SteppingR[Data1][2]);
+      pins.digitalWritePin(DigitalPin.P15, SteppingL[Data1][2]);
+      pins.digitalWritePin(DigitalPin.P7, SteppingR[Data1][3]);
+      pins.digitalWritePin(DigitalPin.P16, SteppingL[Data1][3]);
       for (i = 0; i < microbit_wait; i++);
       {
       }
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 1);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 1);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < microbit_wait; i++);
-      {
+      Data1=Data1-1;
       }
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 0);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 1);
-      pins.digitalWritePin(DigitalPin.P6, 1);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 0);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < microbit_wait; i++);
-      {
-      }
-      pins.digitalWritePin(DigitalPin.P3, 0);
-      pins.digitalWritePin(DigitalPin.P13, 1);
-      pins.digitalWritePin(DigitalPin.P4, 0);
-      pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 0);
-      pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 1);
-      pins.digitalWritePin(DigitalPin.P16, 0);
-      for (i = 0; i < microbit_wait; i++);
-      {
-      }    
     }
   }
 
