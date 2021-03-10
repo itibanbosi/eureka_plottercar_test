@@ -90,19 +90,22 @@ namespace eureka_plotter_car {
     let i=0;
     for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512 ); index++) {
 
-    let D2=0;
-      for (D2 =0 ; D2 < 5; D2++){
-          
-      pins.digitalWritePin(DigitalPin.P3, SteppingR[D2][0]);
-      pins.digitalWritePin(DigitalPin.P13, SteppingL[D2][0]);
-      pins.digitalWritePin(DigitalPin.P4, SteppingR[D2][1]);
-      pins.digitalWritePin(DigitalPin.P14, SteppingL[D2][1]);
-      pins.digitalWritePin(DigitalPin.P6, SteppingR[D2][2]);
-      pins.digitalWritePin(DigitalPin.P15, SteppingL[D2][2]);
-      pins.digitalWritePin(DigitalPin.P7, SteppingR[D2][3]);
-      pins.digitalWritePin(DigitalPin.P16, SteppingL[D2][3]);
-        serial.writeNumber(D2);
+    let Data1=0;
+    while ( Data1 < 5){
+        
+      pins.digitalWritePin(DigitalPin.P3, SteppingR[Data1][0]);
+      pins.digitalWritePin(DigitalPin.P13, SteppingL[Data1][0]);
+      pins.digitalWritePin(DigitalPin.P4, SteppingR[Data1][1]);
+      pins.digitalWritePin(DigitalPin.P14, SteppingL[Data1][1]);
+      pins.digitalWritePin(DigitalPin.P6, SteppingR[Data1][2]);
+      pins.digitalWritePin(DigitalPin.P15, SteppingL[Data1][2]);
+      pins.digitalWritePin(DigitalPin.P7, SteppingR[Data1][3]);
+      pins.digitalWritePin(DigitalPin.P16, SteppingL[Data1][3]);
+
         basic.pause(1000);
+        serial.writeNumber(Data1); 
+      Data1=Data1+1;
+
       }
     }
   }
