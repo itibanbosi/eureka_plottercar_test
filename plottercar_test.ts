@@ -29,6 +29,15 @@ let cond_Distance=1;
 let cond_degree=1;
 let microbit_wait=900;
 
+let SteppingR = [
+  [1,0,0,0],
+  [0,1,0,0],
+  [0,0,1,0],
+  [0,0,0,1],
+  ];
+
+
+
 
 
 //% color="#3943c6" block="ﾌﾟﾛｯﾀｰ・ｶｰVer1.2" icon="\uf1b9"
@@ -75,13 +84,13 @@ namespace eureka_plotter_car {
     led.enable(false);
     let i=0;
     for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512); index++) {
-      pins.digitalWritePin(DigitalPin.P3, 0);
+      pins.digitalWritePin(DigitalPin.P3, SteppingR[0][0]);
       pins.digitalWritePin(DigitalPin.P13, 1);
-      pins.digitalWritePin(DigitalPin.P4, 0);
+      pins.digitalWritePin(DigitalPin.P4, SteppingR[0][1]);
       pins.digitalWritePin(DigitalPin.P14, 0);
-      pins.digitalWritePin(DigitalPin.P6, 0);
+      pins.digitalWritePin(DigitalPin.P6, SteppingR[0][2]);
       pins.digitalWritePin(DigitalPin.P15, 0);
-      pins.digitalWritePin(DigitalPin.P7, 1);
+      pins.digitalWritePin(DigitalPin.P7, SteppingR[0][3]);
       pins.digitalWritePin(DigitalPin.P16, 0);
       for (i = 0; i < microbit_wait; i++);
       {
