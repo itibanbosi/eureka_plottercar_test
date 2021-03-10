@@ -101,7 +101,7 @@ namespace eureka_plotter_car {
       pins.digitalWritePin(DigitalPin.P15, SteppingL[D2][2]);
       pins.digitalWritePin(DigitalPin.P7, SteppingR[D2][3]);
       pins.digitalWritePin(DigitalPin.P16, SteppingL[D2][3]);
-        basic.showNumber(D2);
+            serial.writeLine("D2");
         basic.pause(1000);
       }
     }
