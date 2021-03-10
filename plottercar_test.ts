@@ -88,18 +88,27 @@ namespace eureka_plotter_car {
     export function plottercar_1sou_forward(F_cm: number): void {
     led.enable(false);
     let i=0;
-    for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512); index++) {
-      pins.digitalWritePin(DigitalPin.P3, SteppingR[0][0]);
-      pins.digitalWritePin(DigitalPin.P13, SteppingL[0][0]);
-      pins.digitalWritePin(DigitalPin.P4, SteppingR[0][1]);
-      pins.digitalWritePin(DigitalPin.P14, SteppingL[0][1]);
-      pins.digitalWritePin(DigitalPin.P6, SteppingR[0][2]);
-      pins.digitalWritePin(DigitalPin.P15, SteppingL[0][2]);
-      pins.digitalWritePin(DigitalPin.P7, SteppingR[0][3]);
-      pins.digitalWritePin(DigitalPin.P16, SteppingL[0][3]);
+    for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512 ); index++) {
+
+    
+      for (let D2 =0 ; 4; D2++){
+          
+      pins.digitalWritePin(DigitalPin.P3, SteppingR[D2][0]);
+      pins.digitalWritePin(DigitalPin.P13, SteppingL[D2][0]);
+      pins.digitalWritePin(DigitalPin.P4, SteppingR[D2][1]);
+      pins.digitalWritePin(DigitalPin.P14, SteppingL[D2][1]);
+      pins.digitalWritePin(DigitalPin.P6, SteppingR[D2][2]);
+      pins.digitalWritePin(DigitalPin.P15, SteppingL[D2][2]);
+      pins.digitalWritePin(DigitalPin.P7, SteppingR[D2][3]);
+      pins.digitalWritePin(DigitalPin.P16, SteppingL[D2][3]);
+
+
+      }
       for (i = 0; i < microbit_wait; i++);
       {
       }
+/*
+
       pins.digitalWritePin(DigitalPin.P3, SteppingR[1][0]);
       pins.digitalWritePin(DigitalPin.P13, SteppingL[1][0]);
       pins.digitalWritePin(DigitalPin.P4, SteppingR[1][1]);
@@ -133,7 +142,7 @@ namespace eureka_plotter_car {
       for (i = 0; i < microbit_wait; i++);
       {
       }
-      
+*/      
       
     }
   }
