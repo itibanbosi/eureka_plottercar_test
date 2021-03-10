@@ -102,7 +102,7 @@ namespace eureka_plotter_car {
       pins.digitalWritePin(DigitalPin.P7, SteppingR[D2][3]);
       pins.digitalWritePin(DigitalPin.P16, SteppingL[D2][3]);
 
-        basic.pause(100);
+        basic.pause(1000);
       }
 /*      
       for (i = 0; i < microbit_wait; i++);
