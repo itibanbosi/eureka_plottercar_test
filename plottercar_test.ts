@@ -29,20 +29,39 @@ let cond_Distance=1;
 let cond_degree=1;
 let microbit_wait=900;
 
-let Stepping1 = [
-  [1,0,0,0],
-  [0,0,1,0],
-  [0,1,0,0],
-  [1,0,0,0],
+let Stepping = [
+  [0,0,0,0],
+  [0,0,0,0],
+  [0,0,0,0],
+  [0,0,0,0],
   ];
 
-let Stepping2 = [
+let Stepping1 = [
   [1,0,0,0],
   [0,1,0,0],
   [0,0,1,0],
   [0,0,0,1],
   ];
+  let Stepping2 = [
+  [0,0,0,1],
+  [0,0,1,0],
+  [0,1,0,0],
+  [1,0,0,0],
+  ];
 
+let Stepping_R = [
+  [0,0,0,1],
+  [0,0,1,0],
+  [0,1,0,0],
+  [1,0,0,0],
+  ];
+
+let Stepping_L = [
+  [0,0,0,1],
+  [0,0,1,0],
+  [0,1,0,0],
+  [1,0,0,0],
+  ];
 
 let hasuu = [[
   [0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],
@@ -70,6 +89,9 @@ let hasuu = [[
   ],
   ];
 
+let moter_number_R;
+
+
 
 
 
@@ -77,6 +99,13 @@ let hasuu = [[
 //% color="#3943c6" block="ﾌﾟﾛｯﾀｰ・ｶｰVer1.2" icon="\uf1b9"
 
 namespace eureka_plotter_car {
+
+function  moter()
+{
+
+}
+
+
 
   //% color="#ff3d03" weight=90 blockId=auto_led_off block="ﾏｲｸﾛﾋﾞｯﾄのLEDを |%Matrix_LED| にする" group="1 初期設定"
   export function auto_led_off(Matrix_LED:onoff) {
@@ -112,6 +141,11 @@ namespace eureka_plotter_car {
     }
   }
 
+
+
+
+
+
   //% color="#3943c6" weight=80　blockId=plottercar_1sou_forward
   //% block="前へ |%F_cm| ｃｍ進む" group="3　基本の動き"
     export function plottercar_1sou_forward(F_cm: number): void {
@@ -119,16 +153,18 @@ namespace eureka_plotter_car {
     let i=0;
     for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512  ); index++) {
     let Data1=0;
+    Stepping_R = Stepping2
+    Stepping_R = Stepping1
     while ( Data1 < 4){
         
-      pins.digitalWritePin(DigitalPin.P3, Stepping1[Data1][0]);
-      pins.digitalWritePin(DigitalPin.P13, Stepping2[Data1][0]);
-      pins.digitalWritePin(DigitalPin.P4, Stepping1[Data1][1]);
-      pins.digitalWritePin(DigitalPin.P14, Stepping2[Data1][1]);
-      pins.digitalWritePin(DigitalPin.P6, Stepping1[Data1][2]);
-      pins.digitalWritePin(DigitalPin.P15, Stepping2[Data1][2]);
-      pins.digitalWritePin(DigitalPin.P7, Stepping1[Data1][3]);
-      pins.digitalWritePin(DigitalPin.P16, Stepping2[Data1][3]);
+      pins.digitalWritePin(DigitalPin.P3, Stepping_R[Data1][3]);
+      pins.digitalWritePin(DigitalPin.P13, Stepping_L[Data1][0]);
+      pins.digitalWritePin(DigitalPin.P4, Stepping_R[Data1][2]);
+      pins.digitalWritePin(DigitalPin.P14, Stepping_L[Data1][1]);
+      pins.digitalWritePin(DigitalPin.P6, Stepping_R[Data1][1]);
+      pins.digitalWritePin(DigitalPin.P15, Stepping_L[Data1][2]);
+      pins.digitalWritePin(DigitalPin.P7, Stepping_R[Data1][0]);
+      pins.digitalWritePin(DigitalPin.P16, Stepping_L[Data1][3]);
       Data1=Data1+1;
       for (i = 0; i < microbit_wait; i++);
       {
@@ -142,17 +178,18 @@ namespace eureka_plotter_car {
     export function plottercar_1sou_back(F_cm: number): void {
     led.enable(false);
     let i=0;
+    Stepping = Stepping2
     for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512); index++) {
     let Data1=3;
-    while ( Data1 >= 0){
-      pins.digitalWritePin(DigitalPin.P3, Stepping1[Data1][0]);
-      pins.digitalWritePin(DigitalPin.P13, Stepping2[Data1][0]);
-      pins.digitalWritePin(DigitalPin.P4, Stepping1[Data1][1]);
-      pins.digitalWritePin(DigitalPin.P14, Stepping2[Data1][1]);
-      pins.digitalWritePin(DigitalPin.P6, Stepping1[Data1][2]);
-      pins.digitalWritePin(DigitalPin.P15, Stepping2[Data1][2]);
-      pins.digitalWritePin(DigitalPin.P7, Stepping1[Data1][3]);
-      pins.digitalWritePin(DigitalPin.P16, Stepping2[Data1][3]);
+      while ( Data1 >= 0){
+      pins.digitalWritePin(DigitalPin.P3, Stepping[Data1][0]);
+      pins.digitalWritePin(DigitalPin.P13, Stepping[Data1][3]);
+      pins.digitalWritePin(DigitalPin.P4, Stepping[Data1][1]);
+      pins.digitalWritePin(DigitalPin.P14, Stepping[Data1][2]);
+      pins.digitalWritePin(DigitalPin.P6, Stepping[Data1][2]);
+      pins.digitalWritePin(DigitalPin.P15, Stepping[Data1][1]);
+      pins.digitalWritePin(DigitalPin.P7, Stepping[Data1][3]);
+      pins.digitalWritePin(DigitalPin.P16, Stepping[Data1][0]);
       Data1=Data1+1; 
       for (i = 0; i < microbit_wait; i++);
       {
