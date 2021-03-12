@@ -217,8 +217,6 @@ function  moter()
   //% block="右車輪　 ４×|%R_step|ステップ |%houkou|方向" group="3　基本の動き"
 
   export function plottercar_R_step(R_step: number,houkou:plotter_houkou): void {
-    led.enable(false);
-    let i = 0;
     moter_number= R_step;
         switch(houkou){
         case plotter_houkou.前:
@@ -238,6 +236,25 @@ function  moter()
   //% block="左車輪　 ４×|%L_step|ステップ |%houkou|方向" group="3　基本の動き"
 
   export function plottercar_L_step(L_step: number,houkou:plotter_houkou): void {
+    moter_number= L_step;
+        switch(houkou){
+        case plotter_houkou.前:
+            Stepping_R = Stepping2;
+            Stepping_L = Stepping0;
+
+            moter();
+        return;   
+        case plotter_houkou.後:
+            Stepping_R = Stepping1;
+            Stepping_L = Stepping0;
+            moter();      
+        return;
+    }
+} 
+/* 
+ 
+ 
+ 
     led.enable(false);
 
     let i = 0;
@@ -275,6 +292,7 @@ function  moter()
         }
     }
 
+*/
   //% color="#009A00" weight=40　blockId=polygon
   //% block="多角形作図 |%digree_step| 角形　一辺の長さ |%Edge_Num| cm " group="4　図形"
   export function polygon(digree_step: number,Edge_Num:number): void {
