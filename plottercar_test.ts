@@ -167,31 +167,9 @@ function  moter()
     Stepping_L = Stepping1;
     moter_number= F_cm / (18.9*cond_Distance) * 512;
     moter();
-    
-/*
-    for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512  ); index++) {
-
-    let Data1=0;
-
-    while ( Data1 < 4){
-        
-      pins.digitalWritePin(DigitalPin.P3, Stepping_R[Data1][0]);
-      pins.digitalWritePin(DigitalPin.P13, Stepping_L[Data1][0]);
-      pins.digitalWritePin(DigitalPin.P4, Stepping_R[Data1][1]);
-      pins.digitalWritePin(DigitalPin.P14, Stepping_L[Data1][1]);
-      pins.digitalWritePin(DigitalPin.P6, Stepping_R[Data1][2]);
-      pins.digitalWritePin(DigitalPin.P15, Stepping_L[Data1][2]);
-      pins.digitalWritePin(DigitalPin.P7, Stepping_R[Data1][3]);
-      pins.digitalWritePin(DigitalPin.P16, Stepping_L[Data1][3]);
-      Data1=Data1+1;
-      for (i = 0; i < microbit_wait; i++);
-      {
-      }
-
-      }
     }
-*/
-  }
+
+
   //% color="#3943c6" weight=78　blockId=plottercar_1sou_back
   //% block="後ろへ |%F_cm| ｃｍ進む" group="3　基本の動き"
     export function plottercar_1sou_back(F_cm: number): void {
@@ -199,7 +177,10 @@ function  moter()
     let i=0;
     Stepping_R = Stepping1
     Stepping_L = Stepping2
+    moter_number= F_cm / (18.9*cond_Distance) * 512;
+    moter();
 
+/*
     for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512); index++) {
     let Data1=0;
       while ( Data1 < 4){
@@ -217,8 +198,9 @@ function  moter()
       }
 
       }
+*/
     }
-  }
+
 
   //% color="#3943c6" weight=76　blockId=plottercar_L_cycle
   //% block="左回り　角度 |%L_degree| " group="3　基本の動き"
