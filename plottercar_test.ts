@@ -219,38 +219,18 @@ function  moter()
   export function plottercar_R_step(R_step: number,houkou:plotter_houkou): void {
     led.enable(false);
     let i = 0;
-    switch(houkou){
+    moter_number= R_step;
+        switch(houkou){
         case plotter_houkou.前:
+            Stepping_R = Stepping2;
+            Stepping_L = Stepping0;
 
-        for (let index = 0; index < R_step ;  index++ ) {
-        let Data1=0;
-            while ( Data1 < 4){
-                pins.digitalWritePin(DigitalPin.P3, Stepping1[Data1][0]);
-                pins.digitalWritePin(DigitalPin.P4, Stepping1[Data1][1]);
-                pins.digitalWritePin(DigitalPin.P6, Stepping1[Data1][2]);
-                pins.digitalWritePin(DigitalPin.P7, Stepping1[Data1][3]);
-                Data1=Data1+1;
-                for (i = 0; i < microbit_wait; i++);
-                {
-                }
-            }
-        }   
-        return;
+            moter();
+        return;   
         case plotter_houkou.後:
-        for (let index = 0; index < R_step ;  index++) {
-            let Data1=0;
-            while ( Data1 < 4){
-                pins.digitalWritePin(DigitalPin.P3, Stepping2[Data1][0]);
-                pins.digitalWritePin(DigitalPin.P4, Stepping2[Data1][1]);
-                pins.digitalWritePin(DigitalPin.P6, Stepping2[Data1][2]);
-                pins.digitalWritePin(DigitalPin.P7, Stepping2[Data1][3]);
-                Data1=Data1+1;
-                for (i = 0; i < microbit_wait; i++);
-                {
-                }
-            }
-        }
-        
+            Stepping_R = Stepping1;
+            Stepping_L = Stepping0;
+            moter();      
         return;
     }
 }
