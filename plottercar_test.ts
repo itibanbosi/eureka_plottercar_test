@@ -36,6 +36,12 @@ let Stepping = [
   [0,0,0,0],
   ];
 
+let Stepping0 = [
+  [0,0,0,0],
+  [0,0,0,0],
+  [0,0,0,0],
+  [0,0,0,0],
+  ];
 let Stepping1 = [
   [1,0,0,0],
   [0,1,0,0],
@@ -102,6 +108,7 @@ namespace eureka_plotter_car {
 
 function  moter()
 {
+    led.enable(false);
     let i=0;
     for (let index = 0; index < moter_number; index++) {
     let Data1=0;
@@ -161,8 +168,6 @@ function  moter()
   //% color="#3943c6" weight=80　blockId=plottercar_1sou_forward
   //% block="前へ |%F_cm| ｃｍ進む" group="3　基本の動き"
     export function plottercar_1sou_forward(F_cm: number): void {
-    led.enable(false);
-    let i=0;
     Stepping_R = Stepping2;
     Stepping_L = Stepping1;
     moter_number= F_cm / (18.9*cond_Distance) * 512;
@@ -173,13 +178,10 @@ function  moter()
   //% color="#3943c6" weight=78　blockId=plottercar_1sou_back
   //% block="後ろへ |%F_cm| ｃｍ進む" group="3　基本の動き"
     export function plottercar_1sou_back(F_cm: number): void {
-    led.enable(false);
-    let i=0;
     Stepping_R = Stepping1
     Stepping_L = Stepping2
     moter_number= F_cm / (18.9*cond_Distance) * 512;
     moter();
-
     }
 
 
@@ -187,87 +189,30 @@ function  moter()
   //% block="左回り　角度 |%L_degree| " group="3　基本の動き"
 
   export function plottercar_L_cycle(L_degree: number): void {
-
     Stepping_R = Stepping2
     Stepping_L = Stepping2
     moter_number= L_degree / 360 * 512 * 1.62*cond_degree;
     moter();
-
-/*
-    for (let index = 0; index < (L_degree / 360) * 512 * 1.62*cond_degree; index++) {
-    led.enable(false);
-    let i=0;
-    let Data1=0;
-    while ( Data1 < 4){
-      pins.digitalWritePin(DigitalPin.P3, Stepping1[Data1][0]);
-      pins.digitalWritePin(DigitalPin.P13, Stepping1[Data1][0]);
-      pins.digitalWritePin(DigitalPin.P4, Stepping1[Data1][1]);
-      pins.digitalWritePin(DigitalPin.P14, Stepping1[Data1][1]);
-      pins.digitalWritePin(DigitalPin.P6, Stepping1[Data1][2]);
-      pins.digitalWritePin(DigitalPin.P15, Stepping1[Data1][2]);
-      pins.digitalWritePin(DigitalPin.P7, Stepping1[Data1][3]);
-      pins.digitalWritePin(DigitalPin.P16, Stepping1[Data1][3]);
-      Data1=Data1+1;
-      for (i = 0; i < microbit_wait; i++);
-      {
-      }
-   
-    }
-*/
-  
-  }
+   }
+ 
   //% color="#3943c6" weight=74　blockId=plottercar_R_cycle
   //% block="右回り　角度 |%R_degree| " group="3　基本の動き"
-
   export function plottercar_R_cycle(R_degree: number): void {
-    led.enable(false);
-
-    let i = 0;
     Stepping_R = Stepping1
     Stepping_L = Stepping1
     moter_number= R_degree / 360 * 512 * 1.62*cond_degree;
     moter();
-
-
-
-
-/*
-
-    for (let index = 0; index < (R_degree / 360) * 512 * 1.62*cond_degree; index++) {
- 
-    let Data1=0;
-    while ( Data1 < 4){
-      pins.digitalWritePin(DigitalPin.P3, Stepping2[Data1][0]);
-      pins.digitalWritePin(DigitalPin.P13, Stepping2[Data1][0]);
-      pins.digitalWritePin(DigitalPin.P4, Stepping2[Data1][1]);
-      pins.digitalWritePin(DigitalPin.P14, Stepping2[Data1][1]);
-      pins.digitalWritePin(DigitalPin.P6, Stepping2[Data1][2]);
-      pins.digitalWritePin(DigitalPin.P15, Stepping2[Data1][2]);
-      pins.digitalWritePin(DigitalPin.P7, Stepping2[Data1][3]);
-      pins.digitalWritePin(DigitalPin.P16, Stepping2[Data1][3]);
-      Data1=Data1+1; 
-      for (i = 0; i < microbit_wait; i++);
-      {
-      }
-     }
-   }
-*/
-
   }
+
   //% color="#ff4940" weight=71　blockId=plottercar_rest
   //% block="停止状態（電流ＯＦＦ）" group="3　基本の動き"
   export function plottercar_frest(): void {
-    led.enable(false);
-
-    pins.digitalWritePin(DigitalPin.P3, 0);
-    pins.digitalWritePin(DigitalPin.P4, 0);
-    pins.digitalWritePin(DigitalPin.P6, 0);
-    pins.digitalWritePin(DigitalPin.P7, 0);
-    pins.digitalWritePin(DigitalPin.P13, 0);
-    pins.digitalWritePin(DigitalPin.P14, 0);
-    pins.digitalWritePin(DigitalPin.P15, 0);
-    pins.digitalWritePin(DigitalPin.P16, 0);
+    Stepping_R = Stepping0;
+    Stepping_L = Stepping0;
+    moter_number= 1;
+    moter();
   }
+
   //% color="#3943c6" weight=55　blockId=plottercar_R_step
   //% block="右車輪　 ４×|%R_step|ステップ |%houkou|方向" group="3　基本の動き"
 
