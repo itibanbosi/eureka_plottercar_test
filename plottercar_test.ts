@@ -97,11 +97,6 @@ let hasuu = [[
 
 let moter_number=0;
 
-
-
-
-
-
 //% color="#3943c6" block="ﾌﾟﾛｯﾀｰ・ｶｰVer1.2" icon="\uf1b9"
 
 namespace eureka_plotter_car {
@@ -128,8 +123,6 @@ function  moter()
       }
     }
 }
-
-
 
   //% color="#ff3d03" weight=90 blockId=auto_led_off block="ﾏｲｸﾛﾋﾞｯﾄのLEDを |%Matrix_LED| にする" group="1 初期設定"
   export function auto_led_off(Matrix_LED:onoff) {
@@ -251,48 +244,7 @@ function  moter()
         return;
     }
 } 
-/* 
- 
- 
- 
-    led.enable(false);
 
-    let i = 0;
-    switch(houkou){
-        case plotter_houkou.前:
-        for (let index = 0; index < L_step ;  index++) {
-        let Data1=0;
-            while ( Data1 < 4){
-                pins.digitalWritePin(DigitalPin.P13, Stepping2[Data1][0]);
-                pins.digitalWritePin(DigitalPin.P14, Stepping2[Data1][1]);
-                pins.digitalWritePin(DigitalPin.P15, Stepping2[Data1][2]);
-                pins.digitalWritePin(DigitalPin.P16, Stepping2[Data1][3]);
-                Data1=Data1+1;
-                for (i = 0; i < microbit_wait; i++);
-                {
-                }
-            }
-        }
-        return;
-        case plotter_houkou.後:
-        for (let index = 0; index < L_step ;  index++) {
-            let Data1=0;
-            while ( Data1 < 4){
-                pins.digitalWritePin(DigitalPin.P13, Stepping1[Data1][0]);
-                pins.digitalWritePin(DigitalPin.P14, Stepping1[Data1][1]);
-                pins.digitalWritePin(DigitalPin.P15, Stepping1[Data1][2]);
-                pins.digitalWritePin(DigitalPin.P16, Stepping1[Data1][3]);
-                Data1=Data1+1;
-                for (i = 0; i < microbit_wait; i++);
-                {
-                }
-            }
-        }
-        return;
-        }
-    }
-
-*/
   //% color="#009A00" weight=40　blockId=polygon
   //% block="多角形作図 |%digree_step| 角形　一辺の長さ |%Edge_Num| cm " group="4　図形"
   export function polygon(digree_step: number,Edge_Num:number): void {
