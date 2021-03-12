@@ -239,14 +239,14 @@ function  moter()
     moter_number= L_step;
         switch(houkou){
         case plotter_houkou.前:
-            Stepping_R = Stepping2;
-            Stepping_L = Stepping0;
+            Stepping_R = Stepping0;
+            Stepping_L = Stepping1;
 
             moter();
         return;   
         case plotter_houkou.後:
-            Stepping_R = Stepping1;
-            Stepping_L = Stepping0;
+            Stepping_R = Stepping0;
+            Stepping_L = Stepping2;
             moter();      
         return;
     }
