@@ -146,10 +146,11 @@ function  moter()
     export function plottercar_1sou_forward(F_cm: number): void {
     led.enable(false);
     let i=0;
-    for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512  ); index++) {
-    let Data1=0;
     Stepping_R = Stepping2
     Stepping_L = Stepping1
+    for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512  ); index++) {
+    let Data1=0;
+
     while ( Data1 < 4){
         
       pins.digitalWritePin(DigitalPin.P3, Stepping_R[Data1][0]);
@@ -177,7 +178,7 @@ function  moter()
     Stepping_L = Stepping2
 
     for (let index = 0; index < (F_cm / (18.9*cond_Distance) * 512); index++) {
-    let Data1=3;
+    let Data1=0;
       while ( Data1 < 4){
       pins.digitalWritePin(DigitalPin.P3, Stepping_R[Data1][0]);
       pins.digitalWritePin(DigitalPin.P13, Stepping_L[Data1][0]);
