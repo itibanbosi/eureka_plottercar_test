@@ -27,7 +27,7 @@ enum microbit_version {
 
 let cond_Distance=1;
 let cond_degree=1;
-let microbit_wait=900;
+let microbit_wait=600;
 
 let Stepping = [
   [0,0,0,0],
@@ -115,7 +115,7 @@ function  moter()
   export function microbit_version_info(Version_info : microbit_version) {
     switch(Version_info){
         case microbit_version.Version1:
-        microbit_wait=500;
+        microbit_wait=600;
         break;
         case microbit_version.Version2:
         microbit_wait=7000;
