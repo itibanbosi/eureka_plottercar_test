@@ -75,7 +75,7 @@ let Stepping_L = [
 
 let moter_number=0;
 
-//% color="#3943c6" block="ﾌﾟﾛｯﾀｰ・ｶｰVer1.2" icon="\uf1b9"
+//% color="#3943c6" block="ﾌﾟﾛｯﾀｰ・ｶｰVer1.4" icon="\uf1b9"
 
 namespace eureka_plotter_car {
 
