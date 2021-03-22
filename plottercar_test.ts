@@ -115,7 +115,7 @@ function  moter()
   export function microbit_version_info(Version_info : microbit_version) {
     switch(Version_info){
         case microbit_version.Version1:
-        microbit_wait=700;
+        microbit_wait=500;
         break;
         case microbit_version.Version2:
         microbit_wait=7000;
