@@ -22,6 +22,8 @@ enum houkou {
 enum microbit_version {
     Version1,
     Version2,
+    Test_A,
+    Test_B,
     }
 
 
@@ -119,6 +121,14 @@ function  moter()
         break;
         case microbit_version.Version2:
         microbit_wait=7000;
+        break;
+        case microbit_version.Test_A:
+        microbit_wait=10000;
+        break;       
+        case microbit_version.Test_B:
+        microbit_wait=20000;
+        break;       
+
     }
   }
 
